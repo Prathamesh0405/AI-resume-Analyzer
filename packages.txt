@@ -1,9 +1,3 @@
 chromium
 chromium-driver
-libglib
-libnss3
-libgconf
-libfontconfig1
 xvfb
-wget
-unzip 
