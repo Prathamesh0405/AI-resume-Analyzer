@@ -37,6 +37,12 @@ import json
 import streamlit as st
 import datetime
 
+# 🔐 LOGIN CHECK
+# if "user" not in st.session_state or st.session_state.user is None:
+#     st.switch_page("pages/login.py")
+if "user" not in st.session_state:
+    st.session_state.user = None 
+    
 # Set page config at the very beginning
 st.set_page_config(
     page_title="Smart Resume AI",
@@ -472,30 +478,28 @@ class ResumeApp:
         
         with col2:
             # GitHub star button with lottie animation
-            st.markdown("""
-            <div style='display: flex; justify-content: center; align-items: center; margin-bottom: 10px;'>
-                <a href='https://github.com/Hunterdii/Smart-AI-Resume-Analyzer' target='_blank' style='text-decoration: none;'>
-                    <div style='display: flex; align-items: center; background-color: #24292e; padding: 5px 10px; border-radius: 5px; transition: all 0.3s ease;'>
-                        <svg height="16" width="16" viewBox="0 0 16 16" version="1.1" style='margin-right: 5px;'>
-                            <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" fill="gold"></path>
-                        </svg>
-                        <span style='color: white; font-size: 14px;'>Star this repo</span>
-                    </div>
-                </a>
-            </div>
-            """, unsafe_allow_html=True)
+            # st.markdown("""
+            # <div style='display: flex; justify-content: center; align-items: center; margin-bottom: 10px;'>
+            #     <a href='https://github.com/Hunterdii/Smart-AI-Resume-Analyzer' target='_blank' style='text-decoration: none;'>
+            #         <div style='display: flex; align-items: center; background-color: #24292e; padding: 5px 10px; border-radius: 5px; transition: all 0.3s ease;'>
+            #             <svg height="16" width="16" viewBox="0 0 16 16" version="1.1" style='margin-right: 5px;'>
+            #                 <path fill-rule="evenodd" d="M8 .25a.75.75 0 01.673.418l1.882 3.815 4.21.612a.75.75 0 01.416 1.279l-3.046 2.97.719 4.192a.75.75 0 01-1.088.791L8 12.347l-3.766 1.98a.75.75 0 01-1.088-.79l.72-4.194L.818 6.374a.75.75 0 01.416-1.28l4.21-.611L7.327.668A.75.75 0 018 .25z" fill="gold"></path>
+            #             </svg>
+            #             <span style='color: white; font-size: 14px;'>Star this repo</span>
+            #         </div>
+            #     </a>
+            # </div>
+            # """, unsafe_allow_html=True)
             
             # Footer text
             st.markdown("""
             <p style='text-align: center;'>
-                Powered by <b>Streamlit</b> and <b>Google Gemini AI</b> | Developed by 
-                <a href="https://www.linkedin.com/in/patel-hetkumar-sandipbhai-8b110525a/" target="_blank" style='text-decoration: none; color: #FFFFFF'>
-                    <b>Het Patel (Hunterdii)</b>
+                Developed by <br>
+                <a href="https://www.linkedin.com/in/prathmesh-raut-601a77306/" target="_blank" style='text-decoration: none; color: #FFFFFF'>
+                    <b>Prathamesh Raut | Hasim Khatib</b>
                 </a>
             </p>
-            <p style='text-align: center; font-size: 12px; color: #888888;'>
-                "Every star counts! If you find this project helpful, please consider starring the repo to help it reach more people."
-            </p>
+    
             """, unsafe_allow_html=True)
 
     def load_image(self, image_name):
@@ -1001,7 +1005,7 @@ class ResumeApp:
                 print(f"Full traceback: {traceback.format_exc()}")
                 st.error(f"❌ Error preparing resume data: {str(e)}")
 
-        st.toast("Check out these repositories: [30-Days-Of-Rust](https://github.com/Hunterdii/30-Days-Of-Rust)", icon="ℹ️")
+        st.toast("Follow Me on Linkedin: [Prathamesh Raut](https://www.linkedin.com/in/prathmesh-raut-601a77306/)", icon="ℹ️")
 
     def render_about(self):
         """Render the about page"""
@@ -1168,16 +1172,16 @@ class ResumeApp:
                      alt="Het Patel"
                      class="profile-image"
                      onerror="this.onerror=null; this.src='https://avatars.githubusercontent.com/Hunterdii';">
-                <h2 class="profile-name">Het Patel (Hunterdii)</h2>
+                <h2 class="profile-name">Prathamesh Raut</h2>
                 <p class="profile-title">Full Stack Developer & AI/ML Enthusiast</p>
                 <div class="social-links">
-                    <a href="https://github.com/Hunterdii" class="social-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/patel-hetkumar-sandipbhai-8b110525a/" class="social-link" target="_blank">
+                    # <a href="https://github.com/Hunterdii" class="social-link" target="_blank">
+                    #     <i class="fab fa-github"></i>
+                    # </a>
+                    <a href="https://www.linkedin.com/in/prathmesh-raut-601a77306/" class="social-link" target="_blank">
                         <i class="fab fa-linkedin"></i>
                     </a>
-                    <a href="mailto:hunterdii9879@gmail.com" class="social-link" target="_blank">
+                    <a href="mailto:rautprathmesh7007@gmail.com" class="social-link" target="_blank">
                         <i class="fas fa-envelope"></i>
                     </a>
                 </div>
